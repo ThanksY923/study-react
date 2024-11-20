@@ -3,6 +3,9 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { increment } from "./modules/conter";
 import { addToDoList, fetchTodos } from "./modules/todos";
+import Home from '../router/home';
+import { Link, NavLink, Route, Routes } from "react-router-dom";
+import "../day3/store/style.css"
 
 class App extends PureComponent {
   constructor() {
@@ -10,7 +13,7 @@ class App extends PureComponent {
     this.state = {};
   }
   componentDidMount() {
-    this.props.getToDos();
+    this.props.getToDos(); // 获取数据 
   }
   addCounter(number) {
     this.props.addCounter(number);
@@ -28,6 +31,28 @@ class App extends PureComponent {
               return <li key={index}>{item.title}</li>;
             })}
           </ul>
+        </div>
+        <div>
+          <div className="header">Header
+            <div className="nav">
+              {/* <Link to="/home">Home</Link> 渲染出来为普通的a标签 */}
+              <div className="nva">
+                <NavLink to="/home" style={({ isActive }) => ({ color: isActive ? 'red' : 'blue' })} className={({ isActive }) => isActive ? 'active' : ''({})}>Home</NavLink>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div className="content">
+            {/* 映射关系 */}
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              {/* path="*" 通配 没有路径匹配时 */}
+              {/* <Route path="*" element={<Home />} /> */}
+            </Routes>
+          </div>
+          <div className="footer">
+            <hr />
+            Fotter</div>
         </div>
       </div>
     );
