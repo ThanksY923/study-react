@@ -2,7 +2,8 @@ import ReactDOM from "react-dom/client";
 import React, { Suspense } from "react";
 // import App  from "./app.jsx"
 // import App from "./day3/app.jsx";
-import App from "./day3/appfun";
+// import App from "./day3/appfun";
+import App from "../src/hooks/day1/helloHook";
 import { Provider } from "react-redux";
 // import store from './day2/store/index'
 import store from "./day3/store/index";
